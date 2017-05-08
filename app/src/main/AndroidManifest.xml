@@ -19,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HijackAlipay"/>
+        <activity android:name=".HijackWeiXin"/>
         <receiver
             android:name=".HijackReceiver"
             android:enabled="true"
