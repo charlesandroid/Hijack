@@ -1,7 +1,6 @@
 package com.charles.hijack;
 
 import android.app.ActivityManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -22,10 +21,10 @@ public class HijackService extends Service {
         @Override
         public void run() {
             ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            List<RunningAppProcessInfo> appProcessInfos = activityManager
+            List<ActivityManager.RunningAppProcessInfo> appProcessInfos = activityManager
                     .getRunningAppProcesses();
-            for (RunningAppProcessInfo appProcessInfo : appProcessInfos) {
-                if (appProcessInfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+            for (ActivityManager.RunningAppProcessInfo appProcessInfo : appProcessInfos) {
+                if (appProcessInfo.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
                     if (mHijackProperties.containsKey(appProcessInfo.processName)) {
                         hijack(appProcessInfo.processName);
                     }
