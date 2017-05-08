@@ -13,5 +13,6 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, HijackService.class);
         startService(intent);
         Toast.makeText(this, "Hijack start", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
